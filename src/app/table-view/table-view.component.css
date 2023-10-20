@@ -1,4 +1,22 @@
+.container {
+  padding: 50px;
+}
+
+.container > h1 {
+  margin-bottom: 30px;
+}
+
 .flex-container {
   display: flex;
   justify-content: space-between;
+}
+
+#addTaskButton {
+  width: 125px;
+  padding: 5px 0;
+  justify-content: center;
+  border-radius: 12px;
+  color: white;
+  background-color: #48C15B;
+  border: none;
 }

@@ -1,20 +1,27 @@
-<h1>Task List</h1>
-<div class="flex-container">
-  <div>
-    <p style="display:inline">Filters:</p>
-    <label for="statusFilter">Status</label>
-    <select name="statusFilter">
-      <option value="all">All</option>
-      <option value="in-progress">In Progress</option>
-    </select>
+<div class="container">
+  <h1>Task List</h1>
+  <div class="flex-container">
+    <div class="mb-4">
+      <p class="me-2" style="display:inline">Filters:</p>
+      <select class="mx-2">
+        <option value="none">Status</option>
+        <option value="in-progress">In Progress</option>
+      </select>
+      <select class="mx-2">
+        <option value="none">Date</option>
+      </select>
+      <select class="ms-2">
+        <option value="none">Priority</option>
+      </select>
+    </div>
+    <div>
+      <button id="addTaskButton" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add New Task
+      </button>
+    </div>
   </div>
-  <div>
-    <button data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Add New Task
-    </button>
-  </div>
+  <app-table></app-table>
 </div>
-<app-table></app-table>
 
 <!-- Add New Task Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
