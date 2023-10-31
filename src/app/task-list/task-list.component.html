@@ -15,7 +15,7 @@
       </select>
     </div>
     <div>
-      <button id="addTaskButton" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button id="addTaskButton" data-bs-toggle="modal" data-bs-target="#addTaskModal">
         Add New Task
       </button>
     </div>
@@ -24,12 +24,12 @@
 </div>
 
 <!-- Add New Task Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addTaskModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add a New Task</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="addTaskSubmit(formRef)" #formRef="ngForm">
