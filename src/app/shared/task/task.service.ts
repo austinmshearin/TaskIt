@@ -6,7 +6,9 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskService {
-  private tasks = []
+  private tasks = [
+    new Task("a", "b", "c", "d", "e")
+  ]
 
   constructor() {}
 
