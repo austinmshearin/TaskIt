@@ -6,12 +6,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskService {
-  private tasks = [
-    new Task("Test1", "Test1", "Test1", "Test1"),
-    new Task("Test1", "Test1", "Test1", "Test1"),
-    new Task("Test1", "Test1", "Test1", "Test1"),
-    new Task("Test1", "Test1", "Test1", "Test1")
-  ]
+  private tasks = []
 
   constructor() {}
 
@@ -21,8 +16,8 @@ export class TaskService {
     return this.tasks.slice();
   }
 
-  add_task(){
-    this.tasks.push(new Task("Test1", "Test1", "Test1", "Test1"));
+  add_task(title, description, dueDate, priority, status){
+    this.tasks.push(new Task(title, description, dueDate, priority, status));
     this.taskListChanged.next(this.tasks.slice());
   }
 }
