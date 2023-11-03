@@ -9,6 +9,7 @@ import { TaskService } from 'src/app/shared/task/task.service';
 })
 export class TableComponent implements OnInit {
   tasks = [];
+  selectedTask;
 
   constructor(private taskService: TaskService) {}
 
@@ -17,5 +18,13 @@ export class TableComponent implements OnInit {
     this.taskService.taskListChanged.subscribe((tasks: Task[]) => {
       this.tasks = tasks;
     });
+    this.selectedTask = this.taskService.getSelectedTask();
+    this.taskService.selectedTaskIdChanged.subscribe((task: Task) => {
+      this.selectedTask = task;
+    });
+  }
+
+  selectTask(id: number) {
+    this.taskService.setSelectedTaskId(id);
   }
 }

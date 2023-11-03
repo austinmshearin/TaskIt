@@ -7,19 +7,38 @@ import { Subject } from 'rxjs';
 })
 export class TaskService {
   private tasks = [
-    new Task("a", "b", "c", "d", "e")
+    new Task(1, "test title", "test description", "2023-11-02", "Low", "To Do")
   ]
+  private selectedTaskId = 0;
 
   constructor() {}
 
   taskListChanged = new Subject<Task[]>();
 
+  selectedTaskIdChanged = new Subject<Task>();
+
+  setSelectedTaskId(id: number) {
+    this.selectedTaskId = id;
+    this.selectedTaskIdChanged.next(this.getSelectedTask());
+  }
+
+  getSelectedTask() {
+    if (this.selectedTaskId == 0) {
+      return new Task(0, "", "", "", "", "")
+    }
+    for (let task of this.tasks) {
+      if (task.id === this.selectedTaskId) {
+        return task;
+      }
+    }
+  }
+
   get_tasks(){
     return this.tasks.slice();
   }
 
-  add_task(title, description, dueDate, priority, status){
-    this.tasks.push(new Task(title, description, dueDate, priority, status));
+  add_task(id, title, description, dueDate, priority, status){
+    this.tasks.push(new Task(id, title, description, dueDate, priority, status));
     this.taskListChanged.next(this.tasks.slice());
   }
 }
