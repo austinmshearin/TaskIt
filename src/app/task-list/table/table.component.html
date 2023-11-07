@@ -39,8 +39,7 @@
           <div class="row">
             <div class="col-md-8">
               <div class="mb-3">
-                <input class="form-control" type="text" name="title" id="title" value="{{selectedTask.title}}"
-                  disabled>
+                <input class="form-control" type="text" name="title" id="title" value="{{selectedTask.title}}" disabled>
               </div>
               <div class="mb-3">
                 <textarea class="form-control" type="text" name="description" id="description"
@@ -50,13 +49,13 @@
             <div class="col-md-4">
               <div class="mb-3">
                 <p class="mb-0">Due Date</p>
-                <input id="dueDate" class="form-control" type="text" name="dueDate"
-                  value="{{selectedTask.dueDate}}" disabled />
+                <input id="dueDate" class="form-control" type="text" name="dueDate" value="{{selectedTask.dueDate}}"
+                  disabled />
               </div>
               <div class="mb-3">
                 <p class="mb-0">Priority</p>
-                <input class="form-control" name="priority" id="priority" type="text"
-                  value="{{selectedTask.priority}}" disabled>
+                <input class="form-control" name="priority" id="priority" type="text" value="{{selectedTask.priority}}"
+                  disabled>
               </div>
               <div class="mb-3">
                 <p class="mb-0">Status</p>
@@ -84,15 +83,14 @@
           <div class="row">
             <div class="col-md-8">
               <div class="mb-3">
-                <input class="form-control" type="text" name="title" id="title" placeholder="Title" value="{{selectedTask.title}}"
-                  #titleRef="ngModel" ngModel required>
-                <span class="help-block text-danger" *ngIf="!titleRef.valid && titleRef.touched">Please enter a
+                <input class="form-control" type="text" name="title" id="title" placeholder="Title"
+                  [(ngModel)]="selectedTask.title" #titleRef="ngModel" required>
+                <span class="help-block text-danger" *ngIf="!titleRef.valid && descriptionRef.touched">Please enter a
                   title</span>
               </div>
               <div class="mb-3">
                 <textarea class="form-control" type="text" name="description" id="description" placeholder="Description"
-                  value="{{selectedTask.description}}" rows="7" #descriptionRef="ngModel" ngModel
-                  required></textarea>
+                  [(ngModel)]="selectedTask.description" rows="7" #descriptionRef="ngModel" required></textarea>
                 <span class="help-block text-danger" *ngIf="!descriptionRef.valid && descriptionRef.touched">Please
                   enter a description</span>
               </div>
@@ -100,27 +98,29 @@
             <div class="col-md-4">
               <div class="mb-3">
                 <p class="mb-0">Due Date</p>
-                <input id="dueDate" class="form-control" type="date" name="dueDate" value="{{selectedTask.dueDate}}"
-                  #dueDateRef="ngModel" ngModel required />
+                <input id="dueDate" class="form-control" type="date" name="dueDate" [(ngModel)]="selectedTask.dueDate"
+                  #dueDateRef="ngModel" required />
                 <span class="help-block text-danger" *ngIf="!dueDateRef.valid && dueDateRef.touched">Please select a due
                   date</span>
               </div>
               <div class="mb-3">
                 <p class="mb-0">Priority</p>
-                <select class="form-select" name="priority" id="priority" #priorityRef="ngModel" ngModel required>
-                  <option value="Low" [selected]="selectedTask.priority == 'Low'">Low</option>
-                  <option value="Medium" [selected]="selectedTask.priority == 'Medium'">Medium</option>
-                  <option value="High" [selected]="selectedTask.priority == 'High'">High</option>
+                <select class="form-select" name="priority" id="priority" #priorityRef="ngModel" required
+                  [(ngModel)]="selectedTask.priority">
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
                 </select>
                 <span class="help-block text-danger" *ngIf="!priorityRef.valid && priorityRef.touched">Please select a
                   priority</span>
               </div>
               <div class="mb-3">
                 <p class="mb-0">Status</p>
-                <select class="form-select" name="status" id="status" #statusRef="ngModel" ngModel required>
-                  <option value="To Do" [selected]="selectedTask.status == 'To Do'">To Do</option>
-                  <option value="In Progress" [selected]="selectedTask.status == 'In Progress'">In Progress</option>
-                  <option value="Done" [selected]="selectedTask.status == 'Done'">Done</option>
+                <select class="form-select" name="status" id="status" #statusRef="ngModel" required
+                  [(ngModel)]="selectedTask.status">
+                  <option value="To Do">To Do</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Done">Done</option>
                 </select>
                 <span class="help-block text-danger" *ngIf="!statusRef.valid && statusRef.touched">Please select a
                   status</span>
@@ -135,4 +135,3 @@
     </div>
   </div>
 </div>
-
