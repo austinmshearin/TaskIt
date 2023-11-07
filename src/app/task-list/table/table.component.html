@@ -15,10 +15,11 @@
       <td>{{task.priority}}</td>
       <td>{{task.status}}</td>
       <td>
-        <i class="bi bi-pencil-square mx-1"></i>
         <i class="bi bi-trash mx-1"></i>
         <i class="bi bi-eye mx-1" data-bs-toggle="modal" data-bs-target="#viewTaskModal" (click)="selectTask(task.id)"
           style="cursor:pointer"></i>
+        <i class="bi bi-pencil-square mx-1" data-bs-toggle="modal" data-bs-target="#editTaskModal"
+          (click)="selectTask(task.id)" style="cursor:pointer"></i>
       </td>
     </tr>
   </tbody>
@@ -68,3 +69,69 @@
     </div>
   </div>
 </div>
+
+<!-- Edit Task Modal -->
+<div class="modal fade" id="editTaskModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="editTaskSubmit(editTaskFormRef)" #editTaskFormRef="ngForm">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="mb-3">
+                <input class="form-control" type="text" name="title" id="title" placeholder="Title" value="{{selectedTask.title}}"
+                  #titleRef="ngModel" ngModel required>
+                <span class="help-block text-danger" *ngIf="!titleRef.valid && titleRef.touched">Please enter a
+                  title</span>
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" type="text" name="description" id="description" placeholder="Description"
+                  value="{{selectedTask.description}}" rows="7" #descriptionRef="ngModel" ngModel
+                  required></textarea>
+                <span class="help-block text-danger" *ngIf="!descriptionRef.valid && descriptionRef.touched">Please
+                  enter a description</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <p class="mb-0">Due Date</p>
+                <input id="dueDate" class="form-control" type="date" name="dueDate" value="{{selectedTask.dueDate}}"
+                  #dueDateRef="ngModel" ngModel required />
+                <span class="help-block text-danger" *ngIf="!dueDateRef.valid && dueDateRef.touched">Please select a due
+                  date</span>
+              </div>
+              <div class="mb-3">
+                <p class="mb-0">Priority</p>
+                <select class="form-select" name="priority" id="priority" #priorityRef="ngModel" ngModel required>
+                  <option value="Low" [selected]="selectedTask.priority == 'Low'">Low</option>
+                  <option value="Medium" [selected]="selectedTask.priority == 'Medium'">Medium</option>
+                  <option value="High" [selected]="selectedTask.priority == 'High'">High</option>
+                </select>
+                <span class="help-block text-danger" *ngIf="!priorityRef.valid && priorityRef.touched">Please select a
+                  priority</span>
+              </div>
+              <div class="mb-3">
+                <p class="mb-0">Status</p>
+                <select class="form-select" name="status" id="status" #statusRef="ngModel" ngModel required>
+                  <option value="To Do" [selected]="selectedTask.status == 'To Do'">To Do</option>
+                  <option value="In Progress" [selected]="selectedTask.status == 'In Progress'">In Progress</option>
+                  <option value="Done" [selected]="selectedTask.status == 'Done'">Done</option>
+                </select>
+                <span class="help-block text-danger" *ngIf="!statusRef.valid && statusRef.touched">Please select a
+                  status</span>
+              </div>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-success" data-bs-dismiss="modal"
+                [disabled]="!editTaskFormRef.valid">Create</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

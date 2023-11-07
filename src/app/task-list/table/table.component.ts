@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Task } from 'src/app/shared/task/task.model';
 import { TaskService } from 'src/app/shared/task/task.service';
 
@@ -27,4 +28,9 @@ export class TableComponent implements OnInit {
   selectTask(id: number) {
     this.taskService.setSelectedTaskId(id);
   }
+
+  editTaskSubmit(formObj: NgForm) {
+    
+  }
+
 }
