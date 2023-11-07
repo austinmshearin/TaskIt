@@ -15,9 +15,10 @@
       <td>{{task.priority}}</td>
       <td>{{task.status}}</td>
       <td>
-        <i class="bi bi-eye mx-1" data-bs-toggle="modal" data-bs-target="#viewTaskModal" (click)="selectTask(task.id)"></i>
         <i class="bi bi-pencil-square mx-1"></i>
         <i class="bi bi-trash mx-1"></i>
+        <i class="bi bi-eye mx-1" data-bs-toggle="modal" data-bs-target="#viewTaskModal" (click)="selectTask(task.id)"
+          style="cursor:pointer"></i>
       </td>
     </tr>
   </tbody>
