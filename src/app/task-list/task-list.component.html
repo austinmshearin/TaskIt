@@ -76,8 +76,10 @@
                 <span class="help-block text-danger" *ngIf="!statusRef.valid && statusRef.touched">Please select a
                   status</span>
               </div>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-success" data-bs-dismiss="modal" [disabled]="!formRef.valid">Create</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                (click)="cancelCreateTask(addTaskFormRef)">Cancel</button>
+              <button type="submit" class="btn btn-success" data-bs-dismiss="modal"
+                [disabled]="!addTaskFormRef.valid">Create</button>
             </div>
           </div>
         </form>

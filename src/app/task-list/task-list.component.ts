@@ -11,6 +11,10 @@ export class TaskListComponent {
 
   constructor(private taskService: TaskService) {}
 
+  cancelCreateTask(formObj: NgForm) {
+    formObj.reset();
+  }
+
   addTaskSubmit(formObj: NgForm) {
     let id = Date.now();
     let title = formObj.value.title;
