@@ -51,8 +51,8 @@
             <div class="col-md-4">
               <div class="mb-3">
                 <p class="mb-0">Due Date</p>
-                <input id="dueDate" class="form-control" type="date" name="dueDate" placeholder="Due Date"
-                  #dueDateRef="ngModel" ngModel required />
+                <input id="dueDate" class="form-control" type="date" name="dueDate" #dueDateRef="ngModel" ngModel
+                  required />
                 <span class="help-block text-danger" *ngIf="!dueDateRef.valid && dueDateRef.touched">Please select a due
                   date</span>
               </div>
