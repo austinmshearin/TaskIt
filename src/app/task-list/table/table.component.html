@@ -37,25 +37,29 @@
           <div class="row">
             <div class="col-md-8">
               <div class="mb-3">
-                <input class="form-control" type="text" name="title" id="title" placeholder="{{selectedTask.title}}" disabled>
+                <input class="form-control" type="text" name="title" id="title" value="{{selectedTask.title}}"
+                  disabled>
               </div>
               <div class="mb-3">
-                <textarea class="form-control" type="text" name="description" id="description" placeholder="{{selectedTask.description}}"
-                  rows="7" disabled></textarea>
+                <textarea class="form-control" type="text" name="description" id="description"
+                  value="{{selectedTask.description}}" rows="7" disabled></textarea>
               </div>
             </div>
             <div class="col-md-4">
               <div class="mb-3">
                 <p class="mb-0">Due Date</p>
-                <input id="dueDate" class="form-control" type="text" name="dueDate" placeholder="{{selectedTask.dueDate}}" disabled/>
+                <input id="dueDate" class="form-control" type="text" name="dueDate"
+                  value="{{selectedTask.dueDate}}" disabled />
               </div>
               <div class="mb-3">
                 <p class="mb-0">Priority</p>
-                <input class="form-control" name="priority" id="priority" type="text" placeholder="{{selectedTask.priority}}" disabled>
+                <input class="form-control" name="priority" id="priority" type="text"
+                  value="{{selectedTask.priority}}" disabled>
               </div>
               <div class="mb-3">
                 <p class="mb-0">Status</p>
-                <input class="form-control" name="status" id="status" type="text" placeholder="{{selectedTask.status}}" disabled>
+                <input class="form-control" name="status" id="status" type="text" value="{{selectedTask.status}}"
+                  disabled>
               </div>
             </div>
           </div>
