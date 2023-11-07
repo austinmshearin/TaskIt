@@ -29,8 +29,11 @@ export class TableComponent implements OnInit {
     this.taskService.setSelectedTaskId(id);
   }
 
-  editTaskSubmit(formObj: NgForm) {
+  cancelEditTask(formObj: NgForm) {
     
   }
 
+  editTaskSubmit(formObj: NgForm) {
+
+  }
 }
