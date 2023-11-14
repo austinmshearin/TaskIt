@@ -84,13 +84,13 @@
             <div class="col-md-8">
               <div class="mb-3">
                 <input class="form-control" type="text" name="title" id="title" placeholder="Title"
-                  [(ngModel)]="selectedTask.title" #titleRef="ngModel" required>
-                <span class="help-block text-danger" *ngIf="!titleRef.valid && descriptionRef.touched">Please enter a
+                  [ngModel]="selectedTask.title" #titleRef="ngModel" required>
+                <span class="help-block text-danger" *ngIf="!titleRef.valid && titleRef.touched">Please enter a
                   title</span>
               </div>
               <div class="mb-3">
                 <textarea class="form-control" type="text" name="description" id="description" placeholder="Description"
-                  [(ngModel)]="selectedTask.description" rows="7" #descriptionRef="ngModel" required></textarea>
+                  [ngModel]="selectedTask.description" rows="7" #descriptionRef="ngModel" required></textarea>
                 <span class="help-block text-danger" *ngIf="!descriptionRef.valid && descriptionRef.touched">Please
                   enter a description</span>
               </div>
@@ -98,7 +98,7 @@
             <div class="col-md-4">
               <div class="mb-3">
                 <p class="mb-0">Due Date</p>
-                <input id="dueDate" class="form-control" type="date" name="dueDate" [(ngModel)]="selectedTask.dueDate"
+                <input id="dueDate" class="form-control" type="date" name="dueDate" [ngModel]="selectedTask.dueDate"
                   #dueDateRef="ngModel" required />
                 <span class="help-block text-danger" *ngIf="!dueDateRef.valid && dueDateRef.touched">Please select a due
                   date</span>
@@ -106,7 +106,7 @@
               <div class="mb-3">
                 <p class="mb-0">Priority</p>
                 <select class="form-select" name="priority" id="priority" #priorityRef="ngModel" required
-                  [(ngModel)]="selectedTask.priority">
+                  [ngModel]="selectedTask.priority">
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
                   <option value="High">High</option>
@@ -117,7 +117,7 @@
               <div class="mb-3">
                 <p class="mb-0">Status</p>
                 <select class="form-select" name="status" id="status" #statusRef="ngModel" required
-                  [(ngModel)]="selectedTask.status">
+                  [ngModel]="selectedTask.status">
                   <option value="To Do">To Do</option>
                   <option value="In Progress">In Progress</option>
                   <option value="Done">Done</option>
@@ -127,7 +127,7 @@
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cancelEditTask(editTaskFormRef)">Cancel</button>
               <button type="submit" class="btn btn-success" data-bs-dismiss="modal"
-                [disabled]="!editTaskFormRef.valid">Create</button>
+                [disabled]="!editTaskFormRef.valid">Modify</button>
             </div>
           </div>
         </form>

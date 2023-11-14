@@ -9,8 +9,8 @@ import { TaskService } from 'src/app/shared/task/task.service';
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
-  tasks = [];
-  selectedTask;
+  tasks: Task[] = [];
+  selectedTask: Task;
 
   constructor(private taskService: TaskService) {}
 
@@ -30,7 +30,7 @@ export class TableComponent implements OnInit {
   }
 
   cancelEditTask(formObj: NgForm) {
-    
+    formObj.reset();
   }
 
   editTaskSubmit(formObj: NgForm) {

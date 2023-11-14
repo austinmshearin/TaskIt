@@ -7,7 +7,9 @@ import { Subject } from 'rxjs';
 })
 export class TaskService {
   private tasks = [
-    new Task(1, "test title", "test description", "2023-11-02", "Low", "To Do")
+    new Task(1, "test title", "test description", "2023-11-01", "Low", "To Do"),
+    new Task(2, "test title 2", "test description 2", "2023-11-02", "Medium", "In Progress"),
+    new Task(3, "test title 3", "test description 3", "2023-11-03", "High", "Done")
   ]
   private selectedTaskId = 0;
 
