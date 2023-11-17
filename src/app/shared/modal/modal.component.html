@@ -1,0 +1,60 @@
+<div id="full-screen-container">
+  <div id="modal-container">
+    <div class="row my-2 mx-1">
+      <h2>Add a New Task</h2>
+    </div>
+    <form (ngSubmit)="modalSubmit(FormRef)" #FormRef="ngForm">
+      <div class="row">
+        <div class="col-7 my-2 mx-2">
+          <div class="mx-2 my-3">
+            <input class="form-control" type="text" name="title" id="title" placeholder="Title" #titleRef="ngModel"
+              ngModel required>
+            <span class="help-block text-danger" *ngIf="!titleRef.valid && titleRef.touched">
+              Please enter a title
+            </span>
+          </div>
+          <div class="mx-2 my-3">
+            <textarea class="form-control" type="text" name="description" id="description" placeholder="Description"
+              rows="7" #descriptionRef="ngModel" ngModel required></textarea>
+            <span class="help-block text-danger" *ngIf="!descriptionRef.valid && descriptionRef.touched">
+              Please enter a description
+            </span>
+          </div>
+        </div>
+        <div class="col-4 my-2 mx-2">
+          <div class="mx-2 my-3">
+            <p class="mb-0">Due Date</p>
+            <input id="dueDate" class="form-control" type="date" name="dueDate" #dueDateRef="ngModel" ngModel
+              required />
+            <span class="help-block text-danger" *ngIf="!dueDateRef.valid && dueDateRef.touched">Please select a
+              due
+              date</span>
+          </div>
+          <div class="mx-2 mb-3">
+            <p class="mb-0">Priority</p>
+            <select class="form-select" name="priority" id="priority" #priorityRef="ngModel" ngModel required>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <span class="help-block text-danger" *ngIf="!priorityRef.valid && priorityRef.touched">Please select a
+              priority</span>
+          </div>
+          <div class="mx-2 mb-3">
+            <p class="mb-0">Status</p>
+            <select class="form-select" name="status" id="status" #statusRef="ngModel" ngModel required>
+              <option value="To Do">To Do</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Done">Done</option>
+            </select>
+            <span class="help-block text-danger" *ngIf="!statusRef.valid && statusRef.touched">Please select a
+              status</span>
+          </div>
+          <button type="button" class="btn btn-secondar">Cancel</button>
+          <button type="submit" class="btn btn-success" [disabled]="!FormRef.valid">Create</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

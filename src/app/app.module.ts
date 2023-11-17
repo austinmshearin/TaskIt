@@ -6,13 +6,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TableComponent } from './task-list/table/table.component';
 import { FormsModule } from '@angular/forms';
+import { ModalComponent } from './shared/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     TaskListComponent,
-    TableComponent
+    TableComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

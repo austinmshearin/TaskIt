@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Task } from './task.model';
 import { Subject } from 'rxjs';
+import { TaskJob } from '../taskJob/taskJob.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,13 @@ export class TaskService {
   taskListChanged = new Subject<Task[]>();
 
   selectedTaskIdChanged = new Subject<Task>();
+
+  updateTaskJob = new Subject<TaskJob>();
+
+  setTaskJob(taskJob: TaskJob)
+  {
+    this.updateTaskJob.next(taskJob)
+  }
 
   setSelectedTaskId(id: number) {
     this.selectedTaskId = id;
